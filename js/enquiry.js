@@ -12,6 +12,21 @@
   var serviceSelect = document.getElementById('inService');
   var lastSummary = '';
 
+  // Pre-select the service when arriving from a service page
+  // via contact.html?service=Indoor%20Water%20Fountain
+  try {
+    var wantedParam = new URLSearchParams(window.location.search).get('service');
+    if (wantedParam) {
+      var wanted = wantedParam.replace(/\s+/g, ' ').trim();
+      for (var j = 0; j < serviceSelect.options.length; j++) {
+        if (serviceSelect.options[j].text.replace(/\s+/g, ' ').trim() === wanted) {
+          serviceSelect.selectedIndex = j;
+          break;
+        }
+      }
+    }
+  } catch (e) { /* keep the default selection */ }
+
   // Service links pre-select the enquiry form option.
   document.querySelectorAll('[data-service]').forEach(function (link) {
     link.addEventListener('click', function () {
