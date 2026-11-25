@@ -49,7 +49,8 @@ body {
 }
 
 img { display: block; max-width: 100%; }
-a { color: var(--accent); }
+a { color: var(--accent); text-underline-offset: 3px; }
+::selection { background: var(--accent); color: #fff; }
 button, input, select, textarea { font: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -74,13 +75,13 @@ p:last-child { margin-bottom: 0; }
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
 
 /* Progressive enhancement only: content is visible by default.
    The script adds .fade-in as an element scrolls into view. */
-.fade-in { animation: fade-in-up 0.7s ease both; }
+.fade-in { animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
