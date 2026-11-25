@@ -1,0 +1,18 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor and IDE folders
+.vscode/
+.idea/
+
+# Node / build artefacts (none are needed for this static site)
+node_modules/
+dist/
+build/
+
+# Local server / test artefacts
+*.log
