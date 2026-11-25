@@ -15,8 +15,8 @@
   --accent: #14424e;
   --accent-hover: #0e333d;
   --accent-soft: #e7efea;
-  --wa: #1e8a4c;
-  --wa-deep: #176e3d;
+  --wa: #176e3d;
+  --wa-deep: #125c32;
   --err: #b3372a;
   --footer-bg: #10222b;
   --footer-text: #b9c6cb;
@@ -25,11 +25,17 @@
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Spacing */
-  --pad-side: 16px;
-  --section-pad: 64px;
-  --radius: 8px;
-  --max-width: 1160px;
+  /* Spacing — fluid system (single source of truth) */
+  --edge: clamp(16px, 5vw, 64px);
+  --section-space: clamp(56px, 10vw, 140px);
+  --gap-sm: clamp(8px, 1.5vw, 16px);
+  --gap-md: clamp(16px, 2.5vw, 32px);
+  --gap-lg: clamp(24px, 4vw, 64px);
+  --radius: clamp(10px, 1.5vw, 20px);
+  /* Legacy aliases — kept so older rules still resolve to the fluid values */
+  --pad-side: var(--edge);
+  --section-pad: var(--section-space);
+  --max-width: 1200px;
 }
 
 * { box-sizing: border-box; }
@@ -48,7 +54,11 @@ body {
   overflow-x: hidden;
 }
 
-img { display: block; max-width: 100%; }
+/* Every image can never overflow its container; width/height attributes
+   in the HTML reserve the space, so height:auto prevents layout jumps.
+   Icons keep their size: their own rules (higher specificity) set both
+   width and height, e.g. .contact-bar a img, .brand-logo. */
+img { display: block; max-width: 100%; height: auto; }
 a { color: var(--accent); text-underline-offset: 3px; }
 ::selection { background: var(--accent); color: #fff; }
 button, input, select, textarea { font: inherit; }
