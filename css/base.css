@@ -1,0 +1,88 @@
+/* base.css — reset, CSS variables, typography.
+   Theme is changed in one place: :root below. */
+
+:root {
+  /* Colours — warm off-white, charcoal text, one deep teal accent */
+  --bg: #faf8f4;
+  --bg-white: #ffffff;
+  --panel: #ffffff;
+  --panel-soft: #f3efe7;
+  --ink: #26282a;
+  --body: #3d4145;
+  --muted: #5d6468;
+  --line: #e3ded2;
+  --line-strong: #cfc8b8;
+  --accent: #14424e;
+  --accent-hover: #0e333d;
+  --accent-soft: #e7efea;
+  --wa: #1e8a4c;
+  --wa-deep: #176e3d;
+  --err: #b3372a;
+  --footer-bg: #10222b;
+  --footer-text: #b9c6cb;
+
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Spacing */
+  --pad-side: 16px;
+  --section-pad: 64px;
+  --radius: 8px;
+  --max-width: 1160px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 76px;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--accent); }
+button, input, select, textarea { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Progressive enhancement only: content is visible by default.
+   The script adds .fade-in as an element scrolls into view. */
+.fade-in { animation: fade-in-up 0.7s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in { animation: none; }
+}
