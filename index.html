@@ -25,7 +25,7 @@
   <script defer src="js/faq.js"></script>
   <script defer src="js/enquiry.js"></script>
 </head>
-<body>
+<body class="home">
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="Global Water Fountains Enterprises — home">
@@ -50,20 +50,19 @@
 
   <!-- Hero -->
   <section class="hero" aria-label="Introduction">
+    <div class="hero-media">
+      <picture>
+        <source media="(max-width: 767px)" srcset="assets/images/hero-portrait.jpg">
+        <img src="assets/images/hero-1000.jpg" srcset="assets/images/hero-600.jpg 600w, assets/images/hero-1000.jpg 1000w, assets/images/hero-1600.jpg 1600w" sizes="100vw" alt="A three-tier stone fountain in a villa garden in soft daylight, with hedges and trees behind it" width="1600" height="1000" fetchpriority="high">
+      </picture>
+      <div class="hero-overlay" aria-hidden="true"></div>
+    </div>
     <div class="wrap hero-inner">
-      <p class="hero-loc">Shahdara, Delhi · Serving all of India</p>
-      <h1>
-        <span class="h1-main">Global Water Fountains</span>
-        <span class="h1-sub">Enterprises</span>
-      </h1>
-      <p class="hero-tag">Fountains, designed and <em>built to last.</em></p>
-      <p class="lede">We design, install and repair water fountains for homes, hotels and public spaces — led by a founder with 15 years in the trade.</p>
+      <p class="hero-loc">Shahdara, Delhi &middot; All India</p>
+      <h1>Fountains, designed and <em>built to last.</em></h1>
+      <p class="lede">We design, install and repair water fountains for homes, hotels and public spaces &mdash; led by a founder with 15 years in the trade.</p>
       <div class="hero-actions">
-        <a class="btn btn-call" href="tel:+919711427227">
-          <img src="assets/icons/call.svg" alt="" width="16" height="16">
-          Call Now
-        </a>
-        <a class="btn btn-wa" href="https://wa.me/919711427227?text=Hello%2C%20I%20want%20to%20enquire%20about%20a%20water%20fountain%20for%20my%20place." target="_blank" rel="noopener">WhatsApp Us</a>
+        <a class="btn btn-light" href="contact.html">Get a Free Quote</a>
       </div>
       <div class="hero-stats">
         <span><b>15 years</b>of experience</span>
@@ -71,84 +70,54 @@
         <span><b>All India</b>delivery &amp; installation</span>
       </div>
     </div>
-    <div class="hero-photo">
-      <picture>
-        <source media="(max-width: 767px)" srcset="assets/images/hero-portrait.jpg">
-        <img src="assets/images/hero-1000.jpg" srcset="assets/images/hero-600.jpg 600w, assets/images/hero-1000.jpg 1000w, assets/images/hero-1600.jpg 1600w" sizes="100vw" alt="A three-tier stone fountain in a villa garden in soft daylight, with hedges and trees behind it" width="1600" height="1000" fetchpriority="high">
-      </picture>
-    </div>
-  </section>
-  <section class="where" aria-label="Where we work">
-    <div class="wrap">
-      <h2>Based in Shahdara, Delhi. <em>Building across India.</em></h2>
-      <p class="where-lede">Our workshop is in Shahdara, Delhi — our projects are not. We design, deliver and install across India, and we travel for surveys on larger projects.</p>
-      <ul class="states">
-        <li>Delhi NCR</li>
-        <li>Uttar Pradesh</li>
-        <li>Haryana</li>
-        <li>Punjab</li>
-        <li>Rajasthan</li>
-        <li>Gujarat</li>
-        <li>Maharashtra</li>
-        <li>Madhya Pradesh</li>
-        <li>Karnataka</li>
-        <li>Tamil Nadu</li>
-        <li>Telangana</li>
-        <li>West Bengal</li>
-      </ul>
-      <p class="where-note">Mumbai · Bengaluru · Hyderabad · Chennai · Kolkata · Pune · Ahmedabad · Jaipur · Lucknow · Chandigarh · Indore — and all of India.</p>
-    </div>
   </section>
   <!-- Featured services -->
   <section aria-label="Featured services">
     <div class="wrap">
       <div class="sec-head">
         <h2>What we <em>build</em></h2>
-        <p>All seven services under one roof — designed, built and looked after by our own team. Tell us about your space and we will suggest, honestly, what suits it.</p>
+        <p>Four of our seven services, to start with. Tell us about your space and we will suggest, honestly, what suits it.</p>
       </div>
       <div class="svc-grid">
-        <article class="svc">
-          <figure><a href="services/indoor.html"><img src="assets/images/services/indoor.jpg" alt="An illuminated indoor water wall in a hotel lobby" width="700" height="1249" loading="lazy"></a></figure>
+        <a class="svc" href="services/indoor.html">
+          <figure><img src="assets/images/services/indoor.jpg" alt="An illuminated indoor water wall in a hotel lobby" width="700" height="1249" loading="lazy"></figure>
           <div class="svc-body">
-            <h3><a href="services/indoor.html">Indoor Fountains</a></h3>
-            <p>Water walls and quiet features for lobbies, living rooms and offices. Clean, safe and made to run indoors every day.</p>
-            <p class="svc-ideal"><strong>Ideal for:</strong> Hotel lobbies, offices, living rooms and reception areas.</p>
-            <a class="svc-link" href="services/indoor.html">View this service <span aria-hidden="true">&rarr;</span></a>
-            <a class="svc-link" href="contact.html?service=Indoor%20Water%20Fountain" data-service="Indoor Water Fountain">Enquire about this service <span aria-hidden="true">&rarr;</span></a>
+            <h3>Indoor Fountains</h3>
+            <p>Water walls and quiet features for lobbies, living rooms and offices.</p>
           </div>
-        </article>
-        <article class="svc">
-          <figure><a href="services/outdoor.html"><img src="assets/images/services/outdoor.jpg" alt="A classic two-tier stone fountain in a garden courtyard" width="720" height="815" loading="lazy"></a></figure>
+        </a>
+        <a class="svc" href="services/outdoor.html">
+          <figure><img src="assets/images/stone-tiered.jpg" alt="A carved stone tiered fountain in a home courtyard" width="547" height="365" loading="lazy"></figure>
           <div class="svc-body">
-            <h3><a href="services/outdoor.html">Outdoor Fountains</a></h3>
-            <p>Centrepieces for gardens, farmhouses and entrances. Built to handle Indian summers and monsoons.</p>
-            <p class="svc-ideal"><strong>Ideal for:</strong> Gardens, farmhouses, entrances and courtyards.</p>
-            <a class="svc-link" href="services/outdoor.html">View this service <span aria-hidden="true">&rarr;</span></a>
-            <a class="svc-link" href="contact.html?service=Outdoor%20Water%20Fountain" data-service="Outdoor Water Fountain">Enquire about this service <span aria-hidden="true">&rarr;</span></a>
+            <h3>Outdoor Fountains</h3>
+            <p>Centrepieces for gardens, farmhouses and entrances.</p>
           </div>
-        </article>
-        <article class="svc">
-          <figure><a href="services/musical.html"><img src="assets/images/services/musical.jpg" alt="A musical dancing fountain with colourful illuminated jets at night" width="1000" height="648" loading="lazy"></a></figure>
+        </a>
+        <a class="svc" href="services/musical.html">
+          <figure><img src="assets/images/services/musical.jpg" alt="A musical dancing fountain with colourful illuminated jets at night" width="1000" height="648" loading="lazy"></figure>
           <div class="svc-body">
-            <h3><a href="services/musical.html">Musical Fountains</a></h3>
-            <p>Water that moves with music — choreographed jets, colour and sound, programmed into a show people gather to watch.</p>
-            <p class="svc-ideal"><strong>Ideal for:</strong> Public spaces, hotels, resorts, malls and city plazas.</p>
-            <a class="svc-link" href="services/musical.html">View this service <span aria-hidden="true">&rarr;</span></a>
-            <a class="svc-link" href="contact.html?service=Musical%20Fountain" data-service="Musical Fountain">Enquire about this service <span aria-hidden="true">&rarr;</span></a>
+            <h3>Musical Fountains</h3>
+            <p>Water that moves with music &mdash; a show people gather to watch.</p>
           </div>
-        </article>
-        <article class="svc">
-          <figure><a href="services/home-decorative.html"><img src="assets/images/services/home-decorative.jpg" alt="A small decorative tabletop fountain with cascading bowls on a wooden table at home" width="755" height="1024" loading="lazy"></a></figure>
+        </a>
+        <a class="svc" href="services/home-decorative.html">
+          <figure><img src="assets/images/services/home-decorative.jpg" alt="A small decorative tabletop fountain with cascading bowls on a wooden table at home" width="755" height="1024" loading="lazy"></figure>
           <div class="svc-body">
-            <h3><a href="services/home-decorative.html">Home Decorative Fountains</a></h3>
-            <p>Small, self-contained pieces for living rooms, balconies and pooja spaces. No plumbing, no civil work — just fill and plug in.</p>
-            <p class="svc-ideal"><strong>Ideal for:</strong> Living rooms, bedrooms, balconies, corners and pooja spaces — including tabletop and desk pieces.</p>
-            <a class="svc-link" href="services/home-decorative.html">View this service <span aria-hidden="true">&rarr;</span></a>
-            <a class="svc-link" href="contact.html?service=Home%20Decorative%20Fountain" data-service="Home Decorative Fountain">Enquire about this service <span aria-hidden="true">&rarr;</span></a>
+            <h3>Home Decorative Fountains</h3>
+            <p>Small, self-contained pieces for living rooms, balconies and pooja spaces.</p>
           </div>
-        </article>
+        </a>
       </div>
       <p class="more-link"><a class="btn btn-outline" href="services.html">See all seven services</a></p>
+    </div>
+  </section>
+
+  <!-- Image band -->
+  <section class="image-band" aria-label="A fountain in a garden">
+    <img src="assets/images/garden-jet.jpg" alt="A tall garden fountain jetting water among trees and red flowers" width="480" height="640" loading="lazy">
+    <div class="image-band-overlay" aria-hidden="true"></div>
+    <div class="wrap image-band-text">
+      <p>Every fountain is made to order &mdash; for its site.</p>
     </div>
   </section>
 
@@ -159,15 +128,16 @@
         <h2>Work we are <em>proud of</em></h2>
         <p>Styles we design and build, shown for inspiration. Every fountain is made to order for its site.</p>
       </div>
-      <div class="proj-grid">
+      <div class="proj-track">
         <figure class="proj"><img src="assets/images/projects/tiered-stone.jpg" alt="Tiered stone fountain in a villa courtyard" width="1000" height="545" loading="lazy"><figcaption>Tiered Stone Fountain<small>Villa courtyard</small></figcaption></figure>
         <figure class="proj"><img src="assets/images/projects/musical.jpg" alt="Colourful dancing musical fountain at night" width="1000" height="648" loading="lazy"><figcaption>Dancing Musical Fountain<small>Public show</small></figcaption></figure>
-        <figure class="proj"><img src="assets/images/projects/grand-musical.jpg" alt="Aerial view of a grand illuminated musical fountain in a city plaza at night, surrounded by crowds" width="1000" height="567" loading="lazy"><figcaption>Grand Musical Fountain<small>City plaza show</small></figcaption></figure>
+        <figure class="proj"><img src="assets/images/rain-curtain-tower.jpg" alt="A tall modern tiered rain-curtain fountain outside a home at dusk" width="365" height="547" loading="lazy"><figcaption>Rain-Curtain Tower<small>Custom design</small></figcaption></figure>
       </div>
-      <p class="more-link"><a class="btn btn-outline" href="projects.html">See all nine projects</a></p>
+      <p class="proj-hint">Swipe to see more &rarr;</p>
+      <p class="more-link"><a class="btn btn-outline" href="projects.html">See all projects</a></p>
     </div>
   </section>
-  <section aria-label="Why choose us">
+  <section class="section-pale" aria-label="Why choose us">
     <div class="wrap">
       <div class="sec-head">
         <h2>Built properly, <em>looked after</em></h2>
@@ -188,14 +158,14 @@
       </div>
     </div>
   </section>
-  <section class="cta-band" aria-label="Get in touch">
+  <section class="closing" aria-label="Get in touch">
     <div class="wrap">
       <h2>Ready to <em>talk fountains?</em></h2>
-      <p>Tell us about your space — we will listen first, then suggest honestly.</p>
+      <p>Tell us about your space &mdash; we will listen first, then suggest honestly.</p>
+      <p class="closing-loc">Based in Delhi. Building across India.</p>
       <div class="hero-actions">
-        <a class="btn btn-call" href="tel:+919711427227">Call 97114 27227</a>
+        <a class="btn btn-light" href="tel:+919711427227">Call Now</a>
         <a class="btn btn-wa" href="https://wa.me/919711427227?text=Hello%2C%20I%20want%20to%20enquire%20about%20a%20water%20fountain%20for%20my%20place." target="_blank" rel="noopener">WhatsApp Us</a>
-        <a class="btn btn-outline" href="contact.html">Send an Enquiry</a>
       </div>
     </div>
   </section>
