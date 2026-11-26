@@ -20,6 +20,16 @@
     });
   }
 
+  // Header: transparent over the home hero, solid once scrolled.
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // One authored moment, not the same entrance on every section:
   // only project and service cards fade in as they scroll into view.
   // Content is visible by default: this only adds a one-shot
