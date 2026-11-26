@@ -30,25 +30,43 @@
     onScroll();
   }
 
-  // One authored moment, not the same entrance on every section:
-  // only project and service cards fade in as they scroll into view.
-  // Content is visible by default: this only adds a one-shot
-  // .fade-in animation. If the script or IntersectionObserver is
-  // unavailable, or the visitor prefers reduced motion, content
-  // simply stays fully visible.
+  // Smooth motion — transform and opacity only, so phones stay smooth.
+  // Content is visible by default: the .reveal styles in CSS only
+  // hide elements once this script adds the .js class to <html>.
+  // IntersectionObserver then reveals each block once, as it scrolls
+  // into view, with an 80ms stagger between siblings. The delay is
+  // set inline and cleared right after the reveal, so it never slows
+  // a later hover. If the observer is unavailable, or the visitor
+  // prefers reduced motion, everything simply stays fully visible.
+  document.documentElement.classList.add('js');
+
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if ('IntersectionObserver' in window && !reduceMotion) {
+  var revealEls = document.querySelectorAll('.reveal');
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
+          var el = entry.target;
+          var siblings = Array.prototype.filter.call(el.parentNode.children, function (child) {
+            return child.classList && child.classList.contains('reveal');
+          });
+          var index = siblings.indexOf(el);
+          if (index > 0) {
+            el.style.transitionDelay = (index * 80) + 'ms';
+            setTimeout(function () { el.style.transitionDelay = ''; }, 700 + index * 80);
+          }
+          el.classList.add('is-visible');
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
 
-    document.querySelectorAll('.proj, .svc').forEach(function (el) {
+    revealEls.forEach(function (el) {
       observer.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add('is-visible');
     });
   }
 })();
