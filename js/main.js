@@ -41,31 +41,35 @@
   document.documentElement.classList.add('js');
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Project video — silent by default. The visitor taps the button to
-  // hear it; tapping again mutes it. It also pauses when scrolled out
-  // of view, and never autoplays for reduced-motion visitors.
-  var workVideo = document.getElementById('workVideo');
-  var soundBtn = document.getElementById('soundBtn');
-  if (workVideo && soundBtn) {
-    soundBtn.addEventListener('click', function () {
-      workVideo.muted = !workVideo.muted;
-      var on = !workVideo.muted;
-      soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      soundBtn.setAttribute('aria-label', on ? 'Mute video sound' : 'Unmute video sound');
-      if (on) { workVideo.play(); }
-    });
-    if (reduceMotion) {
-      workVideo.removeAttribute('autoplay');
-      workVideo.pause();
-    } else if ('IntersectionObserver' in window) {
-      var videoObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { workVideo.play(); }
-          else { workVideo.pause(); }
-        });
-      }, { threshold: 0.2 });
-      videoObserver.observe(workVideo);
-    }
+  // Project videos — silent by default. The visitor taps a video's
+  // button to hear it; tapping again mutes it. Each video pauses when
+  // scrolled out of view, and never autoplays for reduced-motion visitors.
+  var videoCards = document.querySelectorAll('.video-card');
+  for (var i = 0; i < videoCards.length; i++) {
+    (function (card) {
+      var video = card.querySelector('video');
+      var soundBtn = card.querySelector('.sound-btn');
+      if (!video || !soundBtn) { return; }
+      soundBtn.addEventListener('click', function () {
+        video.muted = !video.muted;
+        var on = !video.muted;
+        soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        soundBtn.setAttribute('aria-label', on ? 'Mute video sound' : 'Unmute video sound');
+        if (on) { video.play(); }
+      });
+      if (reduceMotion) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      } else if ('IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { video.play(); }
+            else { video.pause(); }
+          });
+        }, { threshold: 0.2 });
+        videoObserver.observe(video);
+      }
+    })(videoCards[i]);
   }
 
   var revealEls = document.querySelectorAll('.reveal');
