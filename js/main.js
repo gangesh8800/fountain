@@ -41,6 +41,33 @@
   document.documentElement.classList.add('js');
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Project video — silent by default. The visitor taps the button to
+  // hear it; tapping again mutes it. It also pauses when scrolled out
+  // of view, and never autoplays for reduced-motion visitors.
+  var workVideo = document.getElementById('workVideo');
+  var soundBtn = document.getElementById('soundBtn');
+  if (workVideo && soundBtn) {
+    soundBtn.addEventListener('click', function () {
+      workVideo.muted = !workVideo.muted;
+      var on = !workVideo.muted;
+      soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      soundBtn.textContent = on ? 'Sound on' : 'Sound off';
+      if (on) { workVideo.play(); }
+    });
+    if (reduceMotion) {
+      workVideo.removeAttribute('autoplay');
+      workVideo.pause();
+    } else if ('IntersectionObserver' in window) {
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { workVideo.play(); }
+          else { workVideo.pause(); }
+        });
+      }, { threshold: 0.2 });
+      videoObserver.observe(workVideo);
+    }
+  }
+
   var revealEls = document.querySelectorAll('.reveal');
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
