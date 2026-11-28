@@ -91,6 +91,14 @@ a.svc p { color: var(--muted); }
 }
 
 /* Running-water video — silent until the visitor unmutes it */
+.video-feature { background: var(--deep-teal); color: #fff; }
+.video-feature .sec-head h2 { color: #fff; }
+.video-feature .sec-head h2 em { color: #fff; }
+.video-feature .sec-head p { color: rgba(255, 255, 255, 0.85); }
+.video-grid { display: grid; gap: var(--gap-md); }
+@media (min-width: 768px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+}
 .video-card {
   margin: 0 auto; max-width: 420px; border-radius: var(--radius); overflow: hidden;
   background: var(--bg); border: 1px solid var(--line);
