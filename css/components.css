@@ -90,6 +90,25 @@ a.svc p { color: var(--muted); }
   letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 3px;
 }
 
+/* Running-water video — silent until the visitor unmutes it */
+.video-card {
+  margin: 0 auto; max-width: 420px; border-radius: var(--radius); overflow: hidden;
+  background: var(--bg); border: 1px solid var(--line);
+  box-shadow: 0 8px 24px -12px rgba(16, 34, 43, 0.25);
+}
+.video-card video { display: block; width: 100%; aspect-ratio: 478 / 850; object-fit: cover; background: #10222b; }
+.video-card .sound-btn {
+  position: absolute; top: 12px; right: 12px; min-height: 44px; padding: 0 16px;
+  border-radius: 999px; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(16, 34, 43, 0.72); color: #fff; font-weight: 600; font-size: 0.9rem;
+}
+.video-card .sound-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+.video-card { position: relative; }
+.video-card figcaption {
+  padding: var(--gap-sm) var(--gap-md); color: var(--ink);
+  font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; line-height: 1.25;
+}
+
 /* Project filter */
 .filter-bar { display: flex; flex-wrap: wrap; gap: var(--gap-sm); margin: 0 0 var(--gap-md); }
 .filter-btn {
