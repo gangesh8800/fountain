@@ -51,7 +51,7 @@
       workVideo.muted = !workVideo.muted;
       var on = !workVideo.muted;
       soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      soundBtn.textContent = on ? 'Sound on' : 'Sound off';
+      soundBtn.setAttribute('aria-label', on ? 'Mute video sound' : 'Unmute video sound');
       if (on) { workVideo.play(); }
     });
     if (reduceMotion) {
